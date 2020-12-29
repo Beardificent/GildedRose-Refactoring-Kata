@@ -16,24 +16,24 @@ class GildedRose {
     }
 
 
-
     private void checkConditionsUpdateQuality(Item item) {
         //Copy conditional to clipboard.
         //Select entire else body:: EXTRACT METHOD to whatevername (foo eg)::
         //SURROUND with IF/ELSE
         //COPY method to both conditions.
         //INLINE IT.
+        //remove excess if statements (those that are highlighted/always true - always false)
         switch (item.name) {
             case "Aged Brie":
                 if (item.quality < 50) {
-                    item.quality = item.quality + 1;
+                    item.quality += 1;
 
                 }
                 item.sellIn = item.sellIn - 1;
 
                 if (item.sellIn < 0) {
                     if (item.quality < 50) {
-                        item.quality = item.quality + 1;
+                        item.quality += 1;
                     }
                 }
                 break;
@@ -44,16 +44,17 @@ class GildedRose {
                 //SURROUND with IF/ELSE
                 //COPY method to both conditions.
                 //INLINE IT.
+                //remove excess if statements
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
                     if (item.sellIn < 11) {
                         if (item.quality < 50) {
-                            item.quality = item.quality + 1;
+                            item.quality += 1;
                         }
                     }
                     if (item.sellIn < 6) {
                         if (item.quality < 50) {
-                            item.quality = item.quality + 1;
+                            item.quality += 1;
                         }
                     }
                 }
@@ -69,8 +70,10 @@ class GildedRose {
                 //SURROUND with IF/ELSE
                 //COPY method to both conditions.
                 //INLINE IT.
-
+                //remove excess if statements
                 break;
+            case "conjured":
+                //logic for conjured items
             default:
                 if (item.quality > 0) {
                     item.quality = item.quality - 1;
@@ -84,5 +87,5 @@ class GildedRose {
                 }
                 break;
         }
-            }
-        }
+    }
+}
